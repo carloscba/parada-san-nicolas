@@ -1,5 +1,5 @@
 import scrapy
-
+import re
 
 class QuotesSpider(scrapy.Spider):
     name = "horarios"
@@ -12,9 +12,18 @@ class QuotesSpider(scrapy.Spider):
 
         selectorItems = 'ul.servicios'
 
-        print response.css(selectorItems)
+        data = response.css(selectorItems)
 
-        for horario in response.css(selectorItems):
-            yield {
-                'llegada' : horario.css('div.clearBoth div.llegada::text').extract()
-            }
+        posiciones = data.css('div.info a::attr(href)').extract()
+        latlng = []
+
+        for pos in posiciones:
+            m = re.split('=', pos)
+            if m[1] != ',':
+                latlng.append(m[1])
+
+        
+        yield {
+            'posiciones' : latlng
+        }
+        
