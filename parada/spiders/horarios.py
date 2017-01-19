@@ -11,19 +11,18 @@ class QuotesSpider(scrapy.Spider):
     def parse(self, response):
 
         selectorItems = 'ul.servicios'
-
         data = response.css(selectorItems)
 
-        posiciones = data.css('div.info a::attr(href)').extract()
-        latlng = []
+        horarios = data.css('div.salida')
 
-        for pos in posiciones:
-            m = re.split('=', pos)
-            if m[1] != ',':
-                latlng.append(m[1])
+        detalleHorario = []
 
         
+        for horario in horarios:
+            labels = horario.css('label::text')
+            detalleHorario.append(labels.extract())
+
         yield {
-            'posiciones' : latlng
+            'data' : detalleHorario
         }
         
