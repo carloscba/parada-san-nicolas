@@ -1,0 +1,13 @@
+setup.py
+parada/__init__.py
+parada/items.py
+parada/middlewares.py
+parada/pipelines.py
+parada/settings.py
+parada/spiders/__init__.py
+parada/spiders/horarios.py
+project.egg-info/PKG-INFO
+project.egg-info/SOURCES.txt
+project.egg-info/dependency_links.txt
+project.egg-info/entry_points.txt
+project.egg-info/top_level.txt
