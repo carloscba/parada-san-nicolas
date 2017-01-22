@@ -2,7 +2,7 @@ import scrapy
 import re
 
 class QuotesSpider(scrapy.Spider):
-    name = "horarios"
+    name = "sn-cba"
 
     def start_requests(self):
         url = 'http://mibondiya.cba.gov.ar/Datos.aspx?pCodigoEmpresa=401&pCodigoLinea=24&pCodigoOrigen=124&pCodigoDestino=1&pServicio=SAN%20NICOLAS%20A%20CORDOBA%20CAPITAL&pCodigoParada=&pProveedor=yv'
