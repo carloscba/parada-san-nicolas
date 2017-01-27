@@ -5,6 +5,9 @@ parada/middlewares.py
 parada/pipelines.py
 parada/settings.py
 parada/spiders/__init__.py
+parada/spiders/cba-cp.py
+parada/spiders/cba-sn.py
+parada/spiders/cp-cba.py
 parada/spiders/cp-sn.py
 parada/spiders/sn-cba.py
 parada/spiders/sn-cp.py

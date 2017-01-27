@@ -1,13 +1,11 @@
 import scrapy
 import re
 
-#https://shub.readthedocs.io/en/latest/quickstart.html#basic-usage
-
 class QuotesSpider(scrapy.Spider):
-    name = "sn-cba"
+    name = "cp-cba"
 
     def start_requests(self):
-        url = 'http://mibondiya.cba.gov.ar/Datos.aspx?pCodigoEmpresa=401&pCodigoLinea=24&pCodigoOrigen=124&pCodigoDestino=1&pServicio=SAN%20NICOLAS%20A%20CORDOBA%20CAPITAL&pCodigoParada=&pProveedor=yv'
+        url = 'http://mibondiya.cba.gov.ar/Datos.aspx?pCodigoEmpresa=401&pCodigoLinea=1&pCodigoOrigen=2&pCodigoDestino=1&pServicio=VILLA%20CARLOS%20PAZ%20A%20CORDOBA%20CAPITAL&pCodigoParada=&pProveedor=yv'
         yield scrapy.Request(url=url, callback=self.parse)
 
     def parse(self, response):
