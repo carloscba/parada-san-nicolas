@@ -5,7 +5,8 @@ from .serializers import HorarioSerializer
 
 from .. import recorrido
 
-import urllib
+import urllib.request as url
+
 from bs4 import BeautifulSoup
 
 @api_view(['GET'])
@@ -17,7 +18,7 @@ def horario_list(request, pk, format=None):
 
         recorridos = recorrido.models.Recorrido.objects.get(pk=pk)
 
-        weburl = urllib.urlopen(recorridos.url)
+        weburl = url.urlopen(recorridos.url)
 
         if(weburl.getcode() == 200):
 
