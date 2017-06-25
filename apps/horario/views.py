@@ -3,7 +3,7 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from .serializers import HorarioSerializer
 
-from apps.recorrido.models import Recorrido
+from .. import recorrido
 
 import urllib
 from bs4 import BeautifulSoup
@@ -15,9 +15,9 @@ def horario_list(request, pk, format=None):
     """
     if request.method == 'GET':
 
-        recorrido = Recorrido.objects.get(pk=pk)
+        recorridos = recorrido.models.Recorrido.objects.get(pk=pk)
 
-        weburl = urllib.urlopen(recorrido.url)
+        weburl = urllib.urlopen(recorridos.url)
 
         if(weburl.getcode() == 200):
 
