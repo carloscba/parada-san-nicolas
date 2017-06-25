@@ -1,7 +1,7 @@
 from models import Recorrido
 from rest_framework import viewsets
 from rest_framework import permissions
-from serializers import RecorridoSerializer
+from .serializers import RecorridoSerializer
 
 class RecorridoViewSet(viewsets.ModelViewSet):
     """
