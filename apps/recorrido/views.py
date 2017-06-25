@@ -9,3 +9,4 @@ class RecorridoViewSet(viewsets.ModelViewSet):
     """
     queryset = Recorrido.objects.all()
     serializer_class = RecorridoSerializer
+    #permission_classes = (permissions.IsAuthenticated,)
