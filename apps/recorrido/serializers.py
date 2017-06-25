@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from models import Recorrido
+from .models import Recorrido
 
 class RecorridoSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
