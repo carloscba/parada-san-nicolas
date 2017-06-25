@@ -1,6 +1,11 @@
-# -*- coding: utf-8 -*-
-from __future__ import unicode_literals
+from models import Recorrido
+from rest_framework import viewsets
+from rest_framework import permissions
+from serializers import RecorridoSerializer
 
-from django.shortcuts import render
-
-# Create your views here.
+class RecorridoViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows users to be viewed or edited.
+    """
+    queryset = Recorrido.objects.all()
+    serializer_class = RecorridoSerializer

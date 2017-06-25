@@ -3,17 +3,21 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from serializers import HorarioSerializer
 
+from ..recorrido.models import Recorrido
+
 import urllib2
 from bs4 import BeautifulSoup
 
 @api_view(['GET'])
-def horario_list(request, format=None):
+def horario_list(request, pk, format=None):
     """
     Listado de proximos horarios
     """
     if request.method == 'GET':
 
-        weburl = urllib2.urlopen("http://mibondiya.cba.gov.ar/Datos.aspx?pCodigoEmpresa=401&pCodigoLinea=1&pCodigoOrigen=2&pCodigoDestino=1&pServicio=VILLA%20CARLOS%20PAZ%20A%20CORDOBA%20CAPITAL&pCodigoParada=32&pProveedor=yv")
+        recorrido = Recorrido.objects.get(pk=pk)
+
+        weburl = urllib2.urlopen(recorrido.url)
 
         if(weburl.getcode() == 200):
 
